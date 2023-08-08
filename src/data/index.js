@@ -9,7 +9,7 @@ import {
   Users,
 } from "phosphor-react";
 
-const Profile_Menu = [
+const profileMenu = [
   {
     title: "Profile",
     icon: <User />,
@@ -24,7 +24,7 @@ const Profile_Menu = [
   },
 ];
 
-const Nav_Buttons = [
+const navButtons = [
   {
     index: 0,
     icon: <ChatCircleDots />,
@@ -39,14 +39,14 @@ const Nav_Buttons = [
   },
 ];
 
-const Nav_Setting = [
+const navSetting = [
   {
     index: 3,
     icon: <GearSix />,
   },
 ];
 
-const ChatList = [
+const chatList = [
   {
     id: 0,
     img: faker.image.avatar(),
@@ -129,7 +129,7 @@ const ChatList = [
   },
 ];
 
-const Chat_History = [
+const chatHistory = [
   {
     type: "msg",
     message: "Hi 👋🏻, How are ya ?",
@@ -199,7 +199,7 @@ const Chat_History = [
   },
 ];
 
-const Message_options = [
+const messageOptions = [
   {
     title: "Reply",
   },
@@ -221,10 +221,10 @@ const Message_options = [
 ];
 
 export {
-  Profile_Menu,
-  Nav_Setting,
-  Nav_Buttons,
-  ChatList,
-  Chat_History,
-  Message_options,
+  profileMenu,
+  navSetting,
+  navButtons,
+  chatList,
+  chatHistory,
+  messageOptions,
 };
