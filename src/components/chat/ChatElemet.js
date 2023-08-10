@@ -1,4 +1,4 @@
-import { Avatar, Badge, Box } from "@mui/material";
+import { Avatar, Badge, Box, Stack, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { faker } from "@faker-js/faker";
 
@@ -36,19 +36,36 @@ const ChatElement = () => {
     <Box
       sx={{
         width: "100%",
-        height: 60,
         borderRadius: 1,
         backgroundColor: "#f7f7f7   ",
       }}
       p={2}
     >
-      <StyledBadge
-        overlap={"circular"}
-        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-        variant="dot"
+      <Stack
+        direction={"row"}
+        alignItems={"center"}
+        justifyContent={"space-between"}
       >
-        <Avatar src={faker.image.avatar()} />
-      </StyledBadge>
+        <Stack direction="row" spacing={2}>
+          <StyledBadge
+            overlap={"circular"}
+            anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+            variant="dot"
+          >
+            <Avatar src={faker.image.avatar()} />
+          </StyledBadge>
+          <Stack spacing={0.1}>
+            <Typography variant={"subtitle2"}>Elena</Typography>
+            <Typography variant={"caption"}>How are you?</Typography>
+          </Stack>
+        </Stack>
+        <Stack spacing={2} alignItems={"center"}>
+          <Typography sx={{ fontWeight: 600 }} variant={"caption"}>
+            9:00
+          </Typography>
+          <Badge color={"primary"} badgeContent={2} />
+        </Stack>
+      </Stack>
     </Box>
   );
 };
