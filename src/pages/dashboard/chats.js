@@ -10,6 +10,7 @@ import { ArchiveBox, CircleDashed, MagnifyingGlass } from "phosphor-react";
 import Search from "../../components/search/Search";
 import SearchIconWrapper from "../../components/search/SearchIconWrapper";
 import StyledInputBase from "../../components/search/StyledInputBase";
+import ChatElement from "../../components/chat/ChatElemet";
 
 const Chats = () => {
   return (
@@ -47,6 +48,9 @@ const Chats = () => {
             <Button>Archive</Button>
           </Stack>
           <Divider />
+          <Stack direction={'column'}>
+            <ChatElement />
+          </Stack>
         </Stack>
       </Stack>
     </Box>
