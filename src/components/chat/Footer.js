@@ -178,7 +178,7 @@ const Footer = () => {
                 onEmojiSelect={console.log}
               />
             </Box>
-            {/* Chat Input */}
+            {/* chat Input */}
             <ChatInput openPicker={openPicker} setOpenPicker={setOpenPicker} />
           </Stack>
           <Box
