@@ -11,6 +11,7 @@ import Search from "../../components/search/Search";
 import SearchIconWrapper from "../../components/search/SearchIconWrapper";
 import StyledInputBase from "../../components/search/StyledInputBase";
 import ChatElement from "../../components/chat/ChatElemet";
+import {chatList} from "../../data";
 
 const Chats = () => {
   return (
@@ -48,8 +49,9 @@ const Chats = () => {
             <Button>Archive</Button>
           </Stack>
           <Divider />
-          <Stack direction={'column'}>
-            <ChatElement />
+          <Stack direction={'column'} spacing={1}>
+            <Typography variant={'subtitle2'}>Pinned</Typography>
+            {chatList.filter((el) => el.pinned).map((el) => <ChatElement {...el} />) }
           </Stack>
         </Stack>
       </Stack>

@@ -1,6 +1,5 @@
 import { Avatar, Badge, Box, Stack, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { faker } from "@faker-js/faker";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -31,7 +30,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   },
 }));
 
-const ChatElement = () => {
+const ChatElement = ({img, name, msg, time, unread, online}) => {
   return (
     <Box
       sx={{
@@ -47,23 +46,23 @@ const ChatElement = () => {
         justifyContent={"space-between"}
       >
         <Stack direction="row" spacing={2}>
-          <StyledBadge
-            overlap={"circular"}
-            anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-            variant="dot"
-          >
-            <Avatar src={faker.image.avatar()} />
-          </StyledBadge>
+            {online ? (<StyledBadge
+                overlap={"circular"}
+                anchorOrigin={{vertical: "bottom", horizontal: "right"}}
+                variant="dot"
+            >
+                <Avatar src={img}/>
+            </StyledBadge>) : (<Avatar src={img}/>)}
           <Stack spacing={0.1}>
-            <Typography variant={"subtitle2"}>Elena</Typography>
-            <Typography variant={"caption"}>How are you?</Typography>
+            <Typography variant={"subtitle2"}>{name}</Typography>
+            <Typography variant={"caption"}>{msg}</Typography>
           </Stack>
         </Stack>
         <Stack spacing={2} alignItems={"center"}>
           <Typography sx={{ fontWeight: 600 }} variant={"caption"}>
-            9:00
+              {time}
           </Typography>
-          <Badge color={"primary"} badgeContent={2} />
+          <Badge color={"primary"} badgeContent={unread} />
         </Stack>
       </Stack>
     </Box>
