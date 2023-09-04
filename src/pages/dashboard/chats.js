@@ -11,7 +11,7 @@ import Search from "../../components/search/Search";
 import SearchIconWrapper from "../../components/search/SearchIconWrapper";
 import StyledInputBase from "../../components/search/StyledInputBase";
 import ChatElement from "../../components/chat/ChatElemet";
-import {chatList} from "../../data";
+import { chatList } from "../../data";
 
 const Chats = () => {
   return (
@@ -19,12 +19,11 @@ const Chats = () => {
       sx={{
         position: "relative",
         width: 320,
-        height: "100vh",
         backgroundColor: "#F8FAFF",
         boxShadow: "0px 0px 4px 0px rgba(0, 0, 0, 0.25)",
       }}
     >
-      <Stack p={3}>
+      <Stack p={3} sx={{        height: "100vh"}}>
         <Stack
           direction={"row"}
           justifyContent={"space-between"}
@@ -49,11 +48,25 @@ const Chats = () => {
             <Button>Archive</Button>
           </Stack>
           <Divider />
-          <Stack direction={'column'} spacing={1}>
-            <Typography variant={'subtitle2'}>Pinned</Typography>
-            {chatList.filter((el) => el.pinned).map((el) => <ChatElement {...el} />) }
-          </Stack>
         </Stack>
+          <Stack direction={"column"} sx={{flexGrow: 1, overflow: 'scroll', height: "100%"}}>
+            <Stack direction={"column"} spacing={1}>
+              <Typography variant={"subtitle2"}>Pinned</Typography>
+              {chatList
+                .filter((el) => el.pinned)
+                .map((el) => (
+                  <ChatElement {...el} />
+                ))}
+            </Stack>
+            <Stack direction={"column"} spacing={1}>
+              <Typography variant={"subtitle2"}>All chats</Typography>
+              {chatList
+                .filter((el) => !el.pinned)
+                .map((el) => (
+                  <ChatElement {...el} />
+                ))}
+            </Stack>
+          </Stack>
       </Stack>
     </Box>
   );
